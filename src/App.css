@@ -91,7 +91,7 @@ body {
 
 button {
   cursor: pointer;
-  font-size: 3rem;
+  /* font-size: 3rem; */
   color: #fff;
   background: #959595;
   border: none;
@@ -111,4 +111,19 @@ button {
   margin: auto;
   padding: 20px;
   border: 2px solid #bbbbbb;
+
+  /* //////// */
+
+  display: flex;
+  font-size: 28px;
+  width: 100vh;
+  justify-content: space-between;
+}
+
+.time {
+  width: 90px;
+}
+
+.lives {
+  width: 250px;
 }
