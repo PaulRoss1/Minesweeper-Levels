@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from "react";
 import { createBoard } from "../util/createBoard";
 import Board from "../components/Board";
 import { checkGameEnd } from "../util/checkGameEnd";
-import Timer from "../components/Timer";
 import {
   BOARD_SETTINGS,
   alertColors,
@@ -11,6 +10,7 @@ import {
 } from "../util/constants";
 import { useNavigate, useLocation } from "react-router-dom";
 import { calculateColorIndex } from "../util/calculateColorIndex";
+import GameInfo from "../components/GameInfo";
 
 function Game() {
   const [level, setLevel] = useState(1);
@@ -18,6 +18,7 @@ function Game() {
   const [board, setBoard] = useState([]);
   const [mineCount, setMineCount] = useState(0);
   const [time, setTime] = useState(BOARD_SETTINGS[level].defaultTime);
+  const [flagMode, setFlagMode] = useState(false);
 
   const intervalRef = useRef(null);
   const navigate = useNavigate();
@@ -85,11 +86,10 @@ function Game() {
   }
 
   let colorIndex = calculateColorIndex(mineCount, level);
-  console.log("colorIndex", colorIndex);
 
   return (
     <div
-      className="app"
+      className="game"
       style={{
         backgroundColor: [1, 2, 3].includes(time)
           ? alertColors[time]
@@ -98,38 +98,31 @@ function Game() {
         transition: "background-color 1.5s ease",
       }}
     >
-      <>
-        <div className="info">
-          <button onClick={() => newGame()}>Reset</button>
-          <br />
-          <button onClick={() => navigate("/")}>home page</button>
-          <br />
-          <span>{playerName}</span>
-          <br />
-          <div className="lives">
-            {Array.from({ length: lives }).map((_, i) => (
-              <span key={i}>❤️</span>
-            ))}
-          </div>
-          <span>Level: {level}</span>
-          <br />
+      <button
+        className={`flag-button ${flagMode ? "active" : null}`}
+        onClick={() => setFlagMode(!flagMode)}
+      >
+        🚩
+      </button>
+      <div className="gradient"></div>
+      <GameInfo
+        level={level}
+        mineCount={mineCount}
+        time={time}
+        playerName={playerName}
+        lives={lives}
+        newGame={newGame}
+      />
 
-          <span>Mines left: {mineCount}</span>
-          <br />
-
-          <Timer time={time} />
-        </div>
-
-        <br />
-        <Board
-          board={board}
-          setBoard={setBoard}
-          level={level}
-          setMineCount={setMineCount}
-          setTime={setTime}
-          // defaultTime={BOARD_SETTINGS[level].defaultTime}
-        />
-      </>
+      <br />
+      <Board
+        board={board}
+        setBoard={setBoard}
+        level={level}
+        setMineCount={setMineCount}
+        setTime={setTime}
+        flagMode={flagMode}
+      />
     </div>
   );
 }

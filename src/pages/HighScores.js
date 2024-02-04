@@ -23,28 +23,38 @@ function HighScores() {
 
   return (
     <div className="high-scores">
+      <div className="gradient"></div>
+
       {playerName.length > 0 && <span>game over - level {level}</span>}
       <br />
-      <span>High Scores</span>
-      <br />
-
-      <ul>
-        {highScores
-          ?.sort((a, b) => b.level - a.level)
-          .slice(0, 10)
-          .map((score, index) => (
-            <li key={index}>
-              {index + 1}. {score.name} - {score.level}
-            </li>
-          ))}
-      </ul>
-
-      <button onClick={() => navigate("/")}>home</button>
-      <br />
-
-      {playerName.length > 0 && (
-        <button onClick={handlePlayClick}>play again</button>
+      {highScores === null ? (
+        <span>no high scores yet</span>
+      ) : (
+        <>
+          <span>HIGH SCORES</span>
+          <br />
+          <div className="menu">
+            <ul>
+              {highScores
+                ?.sort((a, b) => b.level - a.level)
+                .slice(0, 10)
+                .map((score, index) => (
+                  <li key={index}>
+                    {index + 1}. {score.name} - {score.level}
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </>
       )}
+
+      <div className="buttons">
+        <button onClick={() => navigate("/")}>home</button>
+
+        {playerName.length > 0 && (
+          <button onClick={handlePlayClick}>play again</button>
+        )}
+      </div>
     </div>
   );
 }

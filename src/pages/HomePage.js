@@ -14,16 +14,32 @@ function HomePage() {
     navigate("/game", { state: { playerName: name } });
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && name.length > 0) {
+      handlePlayClick();
+    }
+  };
+
   return (
     <div className="home-page">
-      <h2>HomePage</h2>
-      <input type="text" value={name} onChange={handleNameChange} />
-      <br />
-      <button onClick={handlePlayClick} disabled={name.length === 0}>
-        play
-      </button>
-      <br />
-      <button onClick={() => navigate("/high-scores")}>high scores</button>
+      <div className="gradient"></div>
+      <h2>MINESWEEPER LEVELS</h2>
+
+      <div className="menu">
+        <input
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          placeholder="ENTER NAME"
+          onKeyDown={handleKeyDown}
+        />
+        <br />
+        <button onClick={handlePlayClick} disabled={name.length === 0}>
+          play
+        </button>
+        <br />
+        <button onClick={() => navigate("/high-scores")}>high scores</button>
+      </div>
     </div>
   );
 }
