@@ -10,6 +10,7 @@ import {
   backgroundColors,
 } from "../util/constants";
 import { useNavigate, useLocation } from "react-router-dom";
+import { calculateColorIndex } from "../util/calculateColorIndex";
 
 function Game() {
   const [level, setLevel] = useState(1);
@@ -83,13 +84,18 @@ function Game() {
     setTime(10);
   }
 
+  let colorIndex = calculateColorIndex(mineCount, level);
+  console.log("colorIndex", colorIndex);
+
   return (
     <div
       className="app"
       style={{
         backgroundColor: [1, 2, 3].includes(time)
           ? alertColors[time]
-          : backgroundColors[level][mineCount],
+          : backgroundColors[level][colorIndex],
+
+        transition: "background-color 1.5s ease",
       }}
     >
       <>

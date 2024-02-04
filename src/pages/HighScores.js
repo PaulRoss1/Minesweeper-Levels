@@ -9,6 +9,7 @@ function HighScores() {
   const location = useLocation();
 
   const playerName = location.state?.playerName || "";
+  const level = location.state?.level || 0;
 
   useEffect(() => {
     let scores = JSON.parse(localStorage.getItem("highScores"));
@@ -22,7 +23,7 @@ function HighScores() {
 
   return (
     <div className="high-scores">
-      {playerName.length > 0 && <span>game over</span>}
+      {playerName.length > 0 && <span>game over - level {level}</span>}
       <br />
       <span>High Scores</span>
       <br />
