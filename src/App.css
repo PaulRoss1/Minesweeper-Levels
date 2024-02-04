@@ -83,10 +83,12 @@ body {
   /* background-color: none; */
 
   background-color: none;
+  transition: background-color 0.2s;
 }
 
 .board [data-status="marked"] {
   background-color: yellow;
+  transition: background-color 0.2s;
 }
 
 button {
