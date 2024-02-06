@@ -103,6 +103,9 @@ body {
         border-radius: 9px;
         font-family: "Orbitron", sans-serif;
         transition: 300ms ease all;
+
+        height: 45px;
+        font-size: 28px;
       }
       button:hover {
         background-color: #b3b3b3;
@@ -159,6 +162,10 @@ body {
     place-content: center;
     align-items: center;
     overflow: hidden;
+
+    @media (max-width: 992px) {
+      padding-top: 0;
+    }
 
     &__flag-button {
       top: 157px;
@@ -260,6 +267,19 @@ body {
       padding-bottom: 0px;
       align-items: center;
 
+      @media (max-width: 992px) {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid #b3b3b3;
+      }
+      @media (max-width: 768px) {
+      }
+      @media (max-width: 576px) {
+      }
+      @media (max-width: 400px) {
+      }
+
       @media (max-width: 576px) {
         max-width: 100%;
         flex-wrap: wrap;
@@ -331,16 +351,16 @@ body {
       border-radius: 9px;
 
       font-size: 34px;
-      width: 40vw;
+      width: 43vw;
 
       @media (max-width: 1024) {
-        width: 40vw;
+        // width: 40vw;
       }
       @media (max-width: 992px) {
-        width: 50vw;
+        width: 55vw;
       }
       @media (max-width: 768px) {
-        width: 60vw;
+        width: 75vw;
       }
       @media (max-width: 576px) {
         width: 80vw;
@@ -354,6 +374,12 @@ body {
       }
       tr {
         font-size: 25px;
+        @media (max-width: 576px) {
+          font-size: 18px;
+        }
+        @media (max-width: 400px) {
+          font-size: 16px;
+        }
       }
     }
     &__scoreboard-title {
@@ -388,6 +414,26 @@ body {
       button:nth-child(2) {
         margin-left: 10px;
       }
+    }
+  }
+  &-not-found {
+    text-align: center;
+
+    button {
+      cursor: pointer;
+      font-size: 28px;
+      color: #fff;
+      background: #777;
+      border: none;
+      padding: 5px;
+      border-radius: 9px;
+      padding: 10px;
+      font-family: Orbitron, sans-serif;
+      transition: 300ms ease all;
+      margin-top: 50px;
+    }
+    button:hover {
+      background: #959595;
     }
   }
 }

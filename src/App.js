@@ -14,26 +14,39 @@ import { useState } from "react";
 
 function App() {
   const [musicEnabled, setMusicEnabled] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  let randomIndex = Math.floor(Math.random() * 14) + 1;
+  // let randomIndex = Math.floor(Math.random() * 14) + 1;
 
   return (
     <div
       className="ms-app"
       style={{
-        backgroundColor: backgroundColors[randomIndex][10],
+        // backgroundColor: backgroundColors[randomIndex][10],
+        backgroundColor: backgroundColors[7][10],
+
         transition: "background-color 1.5s ease",
       }}
     >
       <Router>
-        <AudioPlayer musicEnabled={musicEnabled} />
+        <AudioPlayer
+          musicEnabled={musicEnabled}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
 
-        <Routes>  
+        <Routes>
           <Route
             path="/"
-            element={<HomepPage setMusicEnabled={setMusicEnabled} />}
+            element={
+              <HomepPage
+                setMusicEnabled={setMusicEnabled}
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+              />
+            }
           />
-          <Route path="/game" element={<Game />} />
+          <Route path="/game" element={<Game isPlaying={isPlaying} />} />
           <Route path="/high-scores" element={<HighScores />} />
           <Route path="*" element={<Navigate to="/404" />} />
           <Route path="/404" element={<NotFound />} />

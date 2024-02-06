@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import gameSong from "../music/barker.mp3";
 
-export const AudioPlayer = ({ musicEnabled }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+export const AudioPlayer = ({ musicEnabled, isPlaying, setIsPlaying }) => {
   const audioRef = useRef(new Audio(gameSong));
   audioRef.current.loop = true;
 

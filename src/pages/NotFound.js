@@ -5,7 +5,9 @@ function NotFound() {
 
   return (
     <div className="ms-not-found">
-      <span>NotFound</span>
+      <div className="gradient"></div>
+
+      <span className="ms-not-found__message">Page Not Found</span>
       <br />
       <button onClick={() => navigate("/")}>home</button>
     </div>

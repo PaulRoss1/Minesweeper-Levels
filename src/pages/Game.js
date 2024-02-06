@@ -12,7 +12,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { calculateColorIndex } from "../util/calculateColorIndex";
 import GameInfo from "../components/GameInfo";
 
-function Game() {
+function Game({ isPlaying }) {
   const [level, setLevel] = useState(1);
   const [lives, setLives] = useState(5);
   const [board, setBoard] = useState([]);
@@ -62,12 +62,16 @@ function Game() {
   }, []);
 
   function handleWin() {
+    isPlaying && new Audio(require("../music/success.mp3")).play();
+
     console.log("running handleWin");
     setLevel(level + 1);
     setTime(BOARD_SETTINGS[level + 1].defaultTime);
   }
 
   function handleLoose() {
+    isPlaying && new Audio(require("../music/loose.wav")).play();
+
     setLives((prevLives) => prevLives - 1);
     setTime(BOARD_SETTINGS[level].defaultTime);
     if (lives === 1) {
