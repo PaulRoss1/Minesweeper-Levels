@@ -9,8 +9,12 @@ import HighScores from "./pages/HighScores";
 import NotFound from "./pages/NotFound";
 import HomepPage from "./pages/HomePage";
 import { backgroundColors } from "./util/constants";
+import { AudioPlayer } from "./pages/AudioPlayer";
+import { useState } from "react";
 
 function App() {
+  const [musicEnabled, setMusicEnabled] = useState(false);
+
   let randomIndex = Math.floor(Math.random() * 14) + 1;
 
   return (
@@ -22,8 +26,13 @@ function App() {
       }}
     >
       <Router>
-        <Routes>
-          <Route path="/" element={<HomepPage />} />
+        <AudioPlayer musicEnabled={musicEnabled} />
+
+        <Routes>  
+          <Route
+            path="/"
+            element={<HomepPage setMusicEnabled={setMusicEnabled} />}
+          />
           <Route path="/game" element={<Game />} />
           <Route path="/high-scores" element={<HighScores />} />
           <Route path="*" element={<Navigate to="/404" />} />

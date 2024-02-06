@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-function HomePage() {
+function HomePage({ setMusicEnabled }) {
   const [name, setName] = useState("");
 
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function HomePage() {
   };
 
   return (
-    <div className="ms-home-page">
+    <div className="ms-home-page" onClick={() => setMusicEnabled(true)}>
       <div className="gradient"></div>
       <h2 className="ms-home-page__title">MINESWEEPER LEVELS</h2>
 
