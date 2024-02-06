@@ -6,22 +6,30 @@ function GameInfo({ level, mineCount, time, playerName, lives, newGame }) {
   const navigate = useNavigate();
 
   return (
-    <div className="info">
+    <div className="ms-game__info">
       <button onClick={() => navigate("/")}>HOME</button>
 
       <button onClick={() => newGame()}>RESET</button>
 
-      <span>LEVEL: {level}</span>
+      <span style={{ width: "121px" }}>LEVEL: {level}</span>
 
-      <span>MINES: {mineCount}</span>
+      <span style={{ width: "121px" }}>MINES: {mineCount}</span>
 
       <Timer time={time} />
 
       <div>
-        {playerName}{" "}
-        <span className="lives">
+        <span className="ms-game__lives">
+          <span style={{ marginRight: "8px" }}>{playerName}</span>
           {Array.from({ length: lives }).map((_, i) => (
-            <span key={i}>❤️</span>
+            // <span key={i}>❤️</span>
+            <>
+              <img
+                src={require("../images/heart2.png")}
+                alt="heart"
+                key={i}
+                style={{ width: "30px", height: "30px" }}
+              />
+            </>
           ))}
         </span>
       </div>

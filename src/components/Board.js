@@ -40,7 +40,7 @@ function Board({ board, setBoard, level, setMineCount, setTime, flagMode }) {
 
   return (
     <div
-      className="board"
+      className="ms-game__board"
       style={{
         "--grid-size": BOARD_SETTINGS[level].boardSize,
         "--tile-size": calculateTileSize(level),
@@ -50,7 +50,7 @@ function Board({ board, setBoard, level, setMineCount, setTime, flagMode }) {
         <Fragment key={rowIndex}>
           {row.map((tile, colIndex) => (
             <div
-              className="tile"
+              className="ms-game__tile"
               key={colIndex}
               data-status={tile.status}
               onClick={(e) => handleTileClick(e, tile)}

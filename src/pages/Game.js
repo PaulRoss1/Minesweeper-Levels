@@ -1,4 +1,4 @@
-import "../App.css";
+import "../App.scss";
 import { useEffect, useState, useRef } from "react";
 import { createBoard } from "../util/createBoard";
 import Board from "../components/Board";
@@ -85,13 +85,13 @@ function Game() {
     setTime(10);
   }
 
-  let colorIndex = calculateColorIndex(mineCount, level);
+  let colorIndex = calculateColorIndex(board);
 
   return (
     <div
-      className="game"
+      className="ms-game"
       style={{
-        backgroundColor: [1, 2, 3].includes(time)
+        backgroundColor: [1, 2, 3, 4].includes(time)
           ? alertColors[time]
           : backgroundColors[level][colorIndex],
 
@@ -99,7 +99,7 @@ function Game() {
       }}
     >
       <button
-        className={`flag-button ${flagMode ? "active" : null}`}
+        className={`ms-game__flag-button ${flagMode ? "active" : null}`}
         onClick={() => setFlagMode(!flagMode)}
       >
         🚩

@@ -22,37 +22,58 @@ function HighScores() {
   };
 
   return (
-    <div className="high-scores">
+    <div className="ms-high-scores">
       <div className="gradient"></div>
 
-      {playerName.length > 0 && <span>game over - level {level}</span>}
+      {playerName.length > 0 && (
+        <>
+          <span className="ms-high-scores__over">GAME OVER</span>
+          <br />
+          <span className="ms-high-scores__over-level">LEVEL {level}</span>
+        </>
+      )}
       <br />
       {highScores === null ? (
-        <span>no high scores yet</span>
+        <span className="ms-high-scores__no-scores">NO HIGH SCORES YET</span>
       ) : (
         <>
-          <span>HIGH SCORES</span>
-          <br />
-          <div className="menu">
-            <ul>
-              {highScores
-                ?.sort((a, b) => b.level - a.level)
-                .slice(0, 10)
-                .map((score, index) => (
-                  <li key={index}>
-                    {index + 1}. {score.name} - {score.level}
-                  </li>
-                ))}
-            </ul>
+          <div className="ms-high-scores__scoreboard">
+            <span className="ms-high-scores__scoreboard-title">
+              HIGH SCORES
+            </span>
+            <br />
+            <br />
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {highScores
+                  ?.sort((a, b) => b.level - a.level)
+                  .slice(0, 10)
+                  .map((score, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}.</td>
+                      <td>{score.name}</td>
+                      <td>{score.level}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </>
       )}
 
-      <div className="buttons">
-        <button onClick={() => navigate("/")}>home</button>
+      <div className="ms-high-scores__buttons">
+        <button onClick={() => navigate("/")}>HOME</button>
 
         {playerName.length > 0 && (
-          <button onClick={handlePlayClick}>play again</button>
+          <button onClick={handlePlayClick}>PLAY AGAIN</button>
         )}
       </div>
     </div>

@@ -4,7 +4,7 @@ function NotFound() {
   const navigate = useNavigate();
 
   return (
-    <div className="not-found">
+    <div className="ms-not-found">
       <span>NotFound</span>
       <br />
       <button onClick={() => navigate("/")}>home</button>

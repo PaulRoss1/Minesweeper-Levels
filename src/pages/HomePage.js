@@ -21,24 +21,32 @@ function HomePage() {
   };
 
   return (
-    <div className="home-page">
+    <div className="ms-home-page">
       <div className="gradient"></div>
-      <h2>MINESWEEPER LEVELS</h2>
+      <h2 className="ms-home-page__title">MINESWEEPER LEVELS</h2>
 
-      <div className="menu">
+      <div className="ms-home-page__menu">
         <input
           type="text"
           value={name}
           onChange={handleNameChange}
           placeholder="ENTER NAME"
           onKeyDown={handleKeyDown}
+          maxLength="8"
         />
-        <br />
-        <button onClick={handlePlayClick} disabled={name.length === 0}>
-          play
+        <button
+          className="ms-home-page__play"
+          onClick={handlePlayClick}
+          disabled={name.length === 0}
+          style={
+            name.length === 0
+              ? { backgroundColor: "#b3b3b3", cursor: "default" }
+              : {}
+          }
+        >
+          PLAY
         </button>
-        <br />
-        <button onClick={() => navigate("/high-scores")}>high scores</button>
+        <button onClick={() => navigate("/high-scores")}>HIGH SCORES</button>
       </div>
     </div>
   );

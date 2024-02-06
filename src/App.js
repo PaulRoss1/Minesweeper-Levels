@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div
-      className="App"
+      className="ms-app"
       style={{
         backgroundColor: backgroundColors[randomIndex][10],
         transition: "background-color 1.5s ease",
