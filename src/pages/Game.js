@@ -104,7 +104,7 @@ function Game({ isPlaying }) {
       }}
     >
       <button
-        className={`ms-game__flag-button ${flagMode ? "active" : null}`}
+        className={`ms-game__flag-button ${flagMode ? "active" : ""}`}
         onClick={() => setFlagMode(!flagMode)}
       >
         <img

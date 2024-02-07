@@ -3,7 +3,7 @@ import { BOARD_SETTINGS } from "./constants";
 export const calculateTileSize = (level) => {
   const tileSize =
     window.innerWidth <= 400
-      ? `${BOARD_SETTINGS[level].tileSize * 0.4}px`
+      ? `${BOARD_SETTINGS[level].tileSize - 27}px`
       : window.innerWidth <= 576
       ? `${BOARD_SETTINGS[level].tileSize * 0.5}px`
       : window.innerWidth <= 768

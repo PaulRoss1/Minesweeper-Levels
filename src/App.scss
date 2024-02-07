@@ -180,6 +180,7 @@ body {
       align-items: center;
       justify-content: center;
       background-color: #777;
+      z-index: 99;
 
       @media (min-width: 1024px) {
         display: none;
