@@ -11,6 +11,7 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import { calculateColorIndex } from "../util/calculateColorIndex";
 import GameInfo from "../components/GameInfo";
+import flagSvg from "../images/flag.svg";
 
 function Game({ isPlaying }) {
   const [level, setLevel] = useState(1);
@@ -106,7 +107,11 @@ function Game({ isPlaying }) {
         className={`ms-game__flag-button ${flagMode ? "active" : null}`}
         onClick={() => setFlagMode(!flagMode)}
       >
-        🚩
+        <img
+          src={flagSvg}
+          alt="flag"
+          style={{ width: "30px", height: "30px" }}
+        />
       </button>
       <div className="gradient"></div>
       <GameInfo

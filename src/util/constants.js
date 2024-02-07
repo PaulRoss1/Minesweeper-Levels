@@ -12,7 +12,7 @@ export const BOARD_SETTINGS = {
     boardSize: 3,
     numberOfMines: 1,
     defaultTime: 10,
-    // defaultTime: 999,
+    // defaultTime: 91,
 
     tileSize: 59,
   },
@@ -20,7 +20,7 @@ export const BOARD_SETTINGS = {
     boardSize: 4,
     numberOfMines: 2,
     defaultTime: 11,
-    // defaultTime: 999,
+    // defaultTime: 91,
 
     tileSize: 58,
   },
@@ -28,7 +28,7 @@ export const BOARD_SETTINGS = {
     boardSize: 5,
     numberOfMines: 4,
     defaultTime: 12,
-    // defaultTime: 999,
+    // defaultTime: 91,
 
     tileSize: 57,
   },

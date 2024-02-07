@@ -171,10 +171,15 @@ body {
       top: 157px;
       position: absolute;
       left: 10px;
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       font-size: 18px;
       display: block;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #777;
 
       @media (min-width: 1024px) {
         display: none;
@@ -272,8 +277,18 @@ body {
         border: none;
         border-radius: 0;
         border-bottom: 2px solid #b3b3b3;
+        font-size: 15px;
       }
       @media (max-width: 768px) {
+        max-width: 100%;
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 10px;
+
+        * {
+          margin-top: 3px;
+          margin-bottom: 3px;
+        }
       }
       @media (max-width: 576px) {
       }
@@ -281,9 +296,9 @@ body {
       }
 
       @media (max-width: 576px) {
-        max-width: 100%;
-        flex-wrap: wrap;
-        font-size: 16px;
+        // max-width: 100%;
+        // flex-wrap: wrap;
+        // font-size: 16px;
       }
 
       button {
@@ -293,6 +308,13 @@ body {
         transition: 300ms ease all;
         padding-left: 10px;
         padding-right: 10px;
+
+        @media (max-width: 992px) {
+          font-size: 15px;
+        }
+        @media (max-width: 768px) {
+          border-radius: 9px;
+        }
       }
       button:hover {
         background-color: #b3b3b3;
@@ -305,6 +327,11 @@ body {
       text-align: left;
       display: flex;
       align-items: center;
+
+      @media (max-width: 992px) {
+        width: 300px;
+        margin-left: 10px;
+      }
     }
     &__time {
       width: 64px;
@@ -462,7 +489,8 @@ ul {
 }
 
 .active {
-  outline: 2px solid red;
+  outline: 2px solid #fc0c0c;
+  background-color: #b3b3b3;
 }
 
 /* Gradient Animation */
