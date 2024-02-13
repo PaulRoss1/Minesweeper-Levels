@@ -6,10 +6,10 @@ https://minesweeper-levels.netlify.app/
 
 ## Description
 
-...
+Fully responsive minesweeper game made in react. Complete the board to progress through increasingly difficult levels.
 <br>
 
-[![Series Explorer](https://i.postimg.cc/6qv5RV1p/gitMS.png)](#!)
+[![Minesweeper Levels](https://i.postimg.cc/6qv5RV1p/gitMS.png)](#!)
 
 ## Technologies Used
 
