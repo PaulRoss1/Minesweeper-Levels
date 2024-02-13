@@ -181,10 +181,15 @@ body {
       justify-content: center;
       background-color: #777;
       z-index: 99;
+      outline: 2px solid #b3b3b3;
 
       @media (min-width: 1024px) {
         display: none;
       }
+    }
+    &__flag-button-active {
+      outline: 2px solid #fc0c0c;
+      background-color: #b3b3b3;
     }
     &__board {
       display: -ms-inline-grid;
@@ -487,11 +492,6 @@ ul {
   list-style: none;
   text-align: left;
   padding-left: 0;
-}
-
-.active {
-  outline: 2px solid #fc0c0c;
-  background-color: #b3b3b3;
 }
 
 /* Gradient Animation */
